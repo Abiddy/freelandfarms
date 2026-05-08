@@ -1,54 +1,57 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { AnimatePresence } from "framer-motion";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+import LoadingScreen from "@/components/LoadingScreen";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import OurStory from "@/components/OurStory";
+import Products from "@/components/Products";
+import Sustainability from "@/components/Sustainability";
+import MeetFamily from "@/components/MeetFamily";
+import Journal from "@/components/Journal";
+import WhereToBuy from "@/components/WhereToBuy";
+import Testimonials from "@/components/Testimonials";
+import Stats from "@/components/Stats";
+import ContactFooter from "@/components/ContactFooter";
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+    const [isLoading, setIsLoading] = useState(true);
+
+    // lock scroll while loading
+    useEffect(() => {
+        if (isLoading) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+    }, [isLoading]);
+
+    return (
+        <div className="App bg-cream text-coffee-deep">
+            <AnimatePresence>
+                {isLoading && (
+                    <LoadingScreen onComplete={() => setIsLoading(false)} />
+                )}
+            </AnimatePresence>
+
+            <Navbar />
+
+            <main>
+                <Hero />
+                <OurStory />
+                <Stats />
+                <Products />
+                <Sustainability />
+                <MeetFamily />
+                <Journal />
+                <WhereToBuy />
+                <Testimonials />
+            </main>
+
+            <ContactFooter />
+        </div>
+    );
 }
 
 export default App;
