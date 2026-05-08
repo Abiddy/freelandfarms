@@ -1,0 +1,124 @@
+{
+  "project_name": "Freeland Family Farms",
+  "app_type": "marketing_site",
+  "theme": "light",
+  "archetype": "Organic & Earthy",
+  "design_vision": {
+    "vibe": "Rustic farmhouse aesthetic with a high-end editorial feel.",
+    "textures": "Paper grain, organic handcrafted feel.",
+    "color_palette_description": "Dominant warm brown palette (deep coffee, saddle, caramel, cocoa, terracotta) with cream/ivory/off-white backgrounds."
+  },
+  "colors": {
+    "background": {
+      "primary": "#FDFBF7",
+      "secondary": "#F5F0E6",
+      "tertiary": "#EBE3D5"
+    },
+    "text": {
+      "primary": "#2D1C11",
+      "secondary": "#5C4033",
+      "accent": "#8B5A2B",
+      "muted": "#A89486"
+    },
+    "brand": {
+      "coffee": "#3E2723",
+      "caramel": "#C28E5C",
+      "terracotta": "#BA634A",
+      "honey": "#E2B872"
+    },
+    "gradients": {
+      "accent_gradient": "bg-gradient-to-r from-[#C28E5C] to-[#E2B872]",
+      "border_gradient": "bg-gradient-to-b from-[#8B5A2B] to-[#C28E5C]"
+    },
+    "surfaces": {
+      "card": "bg-[#FDFBF7] border border-[#EBE3D5] shadow-sm",
+      "glass_pill": "bg-[#FDFBF7]/80 backdrop-blur-xl border border-[#EBE3D5]/50 shadow-[0_8px_32px_rgba(45,28,17,0.05)]",
+      "dark_card": "bg-[#2D1C11] text-[#FDFBF7]"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "headings": "'Instrument Serif', serif",
+      "body": "'Work Sans', sans-serif"
+    },
+    "styles": {
+      "h1_hero": "font-['Instrument_Serif'] italic text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-none text-[#2D1C11]",
+      "h2_section": "font-['Instrument_Serif'] text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight text-[#2D1C11]",
+      "h3_card": "font-['Instrument_Serif'] text-2xl sm:text-3xl tracking-tight text-[#2D1C11]",
+      "body_large": "font-['Work_Sans'] text-lg sm:text-xl font-light leading-relaxed text-[#5C4033]",
+      "body_base": "font-['Work_Sans'] text-base font-normal leading-relaxed text-[#5C4033]",
+      "label": "font-['Work_Sans'] text-xs sm:text-sm uppercase tracking-[0.2em] font-medium text-[#8B5A2B]"
+    }
+  },
+  "layout_and_spacing": {
+    "bento_grid": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-6 md:gap-8",
+    "container_padding": "px-6 sm:px-12 lg:px-24 py-16 lg:py-32",
+    "corners": "rounded-2xl lg:rounded-3xl"
+  },
+  "media": {
+    "videos": {
+      "hero_background": {
+        "url": "https://cdn.coverr.co/videos/coverr-cows-grazing-in-the-pasture-4247/1080p.mp4",
+        "description": "Farm video background for the hero section."
+      }
+    },
+    "images": {
+      "hero_fallback": "https://images.unsplash.com/photo-1764943051090-991c5a82174c?q=85",
+      "farm_pasture": "https://images.unsplash.com/photo-1659148566517-9dfe52f802ac?q=85",
+      "milk_pouring": "https://images.unsplash.com/photo-1692421323618-d5ea3bd1283f?q=85",
+      "burrata_cheese": "https://images.unsplash.com/photo-1767500537505-0978aff4ad05?q=85",
+      "sourdough_bread": "https://images.unsplash.com/photo-1774669081553-4ef841520c05?q=85",
+      "portuguese_bread": "https://images.unsplash.com/photo-1587232408234-53831c4efd7f?q=85",
+      "vintage_tools": "https://images.unsplash.com/photo-1765810245181-97764b5500e4?q=85",
+      "baker_farmer": "https://images.unsplash.com/photo-1748640858029-53c840ef5a1b?q=85"
+    }
+  },
+  "components_and_sections": {
+    "loading_screen": {
+      "description": "Custom counter loading screen going from 000 to 100 before fading out.",
+      "animation": "GSAP/Framer Motion counter text with staggered fade out."
+    },
+    "navbar": {
+      "style": "Floating glassmorphism pill with brand monogram.",
+      "layout": "Fixed top, z-50, centered or full width depending on screen size, utilizing the glass_pill surface style."
+    },
+    "hero": {
+      "description": "Hero section with farm video background, italic display name reveal ('Freeland Family Farms'), and rotating role-style word ('A {heritage/family/craft} dairy lives in California').",
+      "overlay": "bg-[#FDFBF7]/30 to maintain a light, rustic look without being too dark."
+    },
+    "our_story": {
+      "description": "Highlights Portuguese roots. Use parallax columns and the vintage tools/baker images.",
+      "layout": "Asymmetric bento grid."
+    },
+    "products": {
+      "description": "Bento grid of products (milk, sourdough, cheeses) with prices.",
+      "style": "Card surfaces with warm brown borders, hover lift effects."
+    },
+    "sustainability": {
+      "description": "Grid detailing animal welfare and farming practices."
+    },
+    "journal_blog": {
+      "style": "Horizontal pill cards, minimal and elegant."
+    },
+    "footer": {
+      "description": "Marquee footer saying 'FROM OUR FARM TO YOUR TABLE' in large Instrument Serif italic. Includes contact form and newsletter."
+    }
+  },
+  "animations": {
+    "scroll_reveal": "GSAP timeline reveals for all sections, triggering when in view. Elements move up slightly and fade in.",
+    "parallax": "Use on images in the Our Story section to create depth on scroll.",
+    "halftone_overlay": "Apply a subtle SVG noise/halftone filter over images for a rustic editorial texture."
+  },
+  "accessibility": {
+    "contrast": "Ensure text colors (#2D1C11, #5C4033) against backgrounds (#FDFBF7, #F5F0E6) meet WCAG AA.",
+    "test_ids": "All interactive elements (buttons, links, inputs) must include role-based data-testid attributes (e.g., data-testid='hero-cta-button')."
+  },
+  "instructions_to_main_agent": [
+    "Use standard Tailwind CSS classes matching the hex codes.",
+    "Implement Instrument Serif and Work Sans via standard imports (Google Fonts).",
+    "Use Framer Motion or GSAP for the custom counter and scroll reveals.",
+    "Follow the specific layout constraints and grid bento classes.",
+    "Avoid using any 'dark mode' logic or styles. Ensure the video overlay is light enough.",
+    "Use HTML video element with autoPlay loop muted playsInline for the background."
+  ]
+}
