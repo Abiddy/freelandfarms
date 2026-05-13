@@ -1,15 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
+import { Instagram } from "lucide-react";
 
 const VIDEO_URL =
     "https://videos.pexels.com/video-files/4828208/4828208-hd_1920_1080_25fps.mp4";
 
 const SOCIALS = [
-    { label: "Instagram", href: "https://www.instagram.com/freelandfamilyfarms" },
-    { label: "Pinterest", href: "#" },
-    { label: "Spotify", href: "#" },
-    { label: "Email", href: "mailto:freelandfamilyfarmsca@gmail.com" },
+    {
+        id: "instagram",
+        href: "https://www.instagram.com/freelandfamilyfarms",
+        external: true,
+    },
+    {
+        id: "email",
+        label: "Email",
+        href: "mailto:freelandfamilyfarmsca@gmail.com",
+        external: false,
+    },
 ];
 
 const ContactFooter = () => {
@@ -223,8 +231,8 @@ const ContactFooter = () => {
                 </div>
 
                 {/* Footer bar */}
-                <div className="mt-10 md:mt-14 flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-2">
-                    <div className="flex items-center gap-3">
+                <div className="mt-10 md:mt-14 flex flex-col items-center gap-6 pb-2 md:flex-row md:items-center md:justify-between">
+                    <div className="flex items-center justify-center gap-3 md:justify-start">
                         <span className="relative flex h-2.5 w-2.5">
                             <span className="absolute inline-flex h-full w-full rounded-full bg-honey opacity-60 animate-soft-pulse" />
                             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-honey" />
@@ -234,24 +242,40 @@ const ContactFooter = () => {
                         </p>
                     </div>
 
-                    <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+                    <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm md:justify-end">
                         {SOCIALS.map((s) => (
-                            <li key={s.label}>
+                            <li key={s.id}>
                                 <a
-                                    data-testid={`social-${s.label.toLowerCase()}`}
+                                    data-testid={`social-${s.id}`}
                                     href={s.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-cream/75 hover:text-honey transition-colors flex items-center gap-1.5"
+                                    {...(s.external
+                                        ? {
+                                              target: "_blank",
+                                              rel: "noopener noreferrer",
+                                          }
+                                        : {})}
+                                    aria-label={
+                                        s.id === "instagram"
+                                            ? "Freeland Family Farms on Instagram"
+                                            : undefined
+                                    }
+                                    className="group flex items-center gap-1.5 text-cream/75 transition-colors hover:text-honey"
                                 >
-                                    {s.label}
-                                    <span className="text-[11px]">↗</span>
+                                    {s.id === "instagram" ? (
+                                        <Instagram
+                                            className="h-[1.35rem] w-[1.35rem] shrink-0"
+                                            strokeWidth={1.65}
+                                            aria-hidden
+                                        />
+                                    ) : (
+                                        s.label
+                                    )}
                                 </a>
                             </li>
                         ))}
                     </ul>
 
-                    <p className="text-xs text-cream/50">
+                    <p className="text-center text-xs text-cream/50 md:text-left">
                         © {new Date().getFullYear()} Freeland Family Farms · Crafted in Woodcrest, CA
                     </p>
                 </div>
