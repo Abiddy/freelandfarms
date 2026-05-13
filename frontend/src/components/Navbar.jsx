@@ -108,9 +108,6 @@ const Navbar = () => {
                     <span className="absolute -inset-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity gradient-ring" />
                     <span className="relative flex items-center gap-1.5 rounded-full bg-coffee-deep text-cream px-3 sm:px-4 py-1.5 sm:py-2 -m-3 sm:-m-4">
                         Shop here
-                        <span className="text-[11px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                            ↗
-                        </span>
                     </span>
                 </a>
             </nav>
