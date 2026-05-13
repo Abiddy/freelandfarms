@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 const ROLES = ["family", "heritage", "craft", "kindness"];
-const VIDEO_URL =
-    "https://videos.pexels.com/video-files/4828208/4828208-hd_1920_1080_25fps.mp4";
+const VIDEO_URL = `${process.env.PUBLIC_URL ?? ""}/media/hero-dairy-farm.mp4`;
 const VIDEO_FALLBACK =
     "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=85&w=2400&auto=format&fit=crop";
 

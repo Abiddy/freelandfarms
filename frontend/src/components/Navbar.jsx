@@ -5,7 +5,6 @@ const NAV_ITEMS = [
     { id: "story", label: "Story" },
     { id: "products", label: "Products" },
     { id: "journal", label: "Journal" },
-    { id: "where", label: "Find Us" },
 ];
 
 const Navbar = () => {
@@ -59,11 +58,19 @@ const Navbar = () => {
                     data-testid="navbar-logo"
                     href="#home"
                     onClick={handleNav("home")}
+                    aria-label="Freeland Family Farms — Home"
                     className="group relative w-9 h-9 rounded-full p-[1.5px] transition-transform hover:scale-110"
                 >
                     <span className="absolute inset-0 rounded-full gradient-ring" />
-                    <span className="relative flex items-center justify-center w-full h-full rounded-full bg-cream text-coffee-deep font-display italic text-[14px] leading-none">
-                        F
+                    <span className="relative block h-full w-full overflow-hidden rounded-full bg-cream">
+                        <img
+                            src={`${process.env.PUBLIC_URL ?? ""}/media/freeland-logo.png`}
+                            alt=""
+                            width={36}
+                            height={36}
+                            decoding="async"
+                            className="h-full w-full object-contain object-center"
+                        />
                     </span>
                 </a>
 
@@ -91,16 +98,16 @@ const Navbar = () => {
 
                 <span className="w-px h-5 bg-stroke mx-1.5 hidden md:block" />
 
-                {/* Say hi */}
+                {/* Shop here */}
                 <a
                     data-testid="navbar-cta"
-                    href="#contact"
-                    onClick={handleNav("contact")}
+                    href="#products"
+                    onClick={handleNav("products")}
                     className="group relative text-xs sm:text-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2"
                 >
                     <span className="absolute -inset-[2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity gradient-ring" />
                     <span className="relative flex items-center gap-1.5 rounded-full bg-coffee-deep text-cream px-3 sm:px-4 py-1.5 sm:py-2 -m-3 sm:-m-4">
-                        Say hi
+                        Shop here
                         <span className="text-[11px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                             ↗
                         </span>
