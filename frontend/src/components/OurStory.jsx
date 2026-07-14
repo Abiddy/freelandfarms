@@ -1,17 +1,26 @@
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
 
+// Photos from the current Freeland Family Farms website
 const IMG_FAMILY =
-    "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=85&w=1600&auto=format&fit=crop";
-const IMG_TOOLS =
-    "https://images.unsplash.com/photo-1597362925123-77861d3fbac7?q=85&w=1200&auto=format&fit=crop";
-const IMG_PORTUGAL =
-    "https://images.unsplash.com/photo-1555992828-ca4dbe41d294?q=85&w=1200&auto=format&fit=crop";
+    "https://img1.wsimg.com/isteam/ip/2f2689ca-b6b0-4c09-8e6a-f128711be214/IMG_1787-d25b71d.jpg/:/rs=w:1600";
+const IMG_MILK =
+    "https://img1.wsimg.com/isteam/ip/2f2689ca-b6b0-4c09-8e6a-f128711be214/IMG_2740.jpg/:/rs=w:1200";
+const IMG_SOURDOUGH =
+    "https://img1.wsimg.com/isteam/ip/2f2689ca-b6b0-4c09-8e6a-f128711be214/IMG_8100.jpg/:/rs=w:1200";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
 };
+
+const STORY_PARAGRAPHS = [
+    "At Freeland Family Farms, we are committed to producing exceptional dairy products and baked goods, thoughtfully crafted with care, tradition, and an unwavering dedication to quality. Owner Amber Freeland has dedicated a decade of her career to higher education and agriculture, which fueled her dream for this business. Her insight regarding agriculture and food systems revealed a need for farm fresh products in our local communities.",
+    "We are proud to collaborate with Zach Batista, owner of Batista Family Farm, to provide our cream-top A2/A2 milk. Together, we support and strengthen local food systems throughout Riverside, San Bernardino, Orange and Los Angeles Counties.",
+    "In 2025 we partnered with Gioia Cheese, a family-owned Italian father-and-son operation whose cheeses are made without preservatives using traditional Italian methods. Through this partnership, we are expanding our presence into farmers' markets and community events, allowing us to reach customers beyond Los Angeles County and share our products with a broader community.",
+    "We have also partnered with Drake Family Farms and Tres Bien Creamery and proudly sell their farm fresh flavored cow, goat and sheep cheeses.",
+    "Amber Freeland and Zach Batista, both of Portuguese heritage, share a deep passion for honoring and preserving their cultural roots. Through our partnership, we are honored to bring the richness of Portuguese tradition from our farms to your table.",
+];
 
 const OurStory = () => {
     return (
@@ -24,8 +33,24 @@ const OurStory = () => {
                 <SectionHeader
                     eyebrow="Our Story"
                     title="From the Azores, *with patience*"
-                    subtext="Three generations of dairy know‑how carried across an ocean. Today our herd grazes the rolling pastures of Riverside County while old Portuguese recipes simmer in the farmhouse kitchen."
                 />
+
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, margin: "-80px" }}
+                    variants={fadeUp}
+                    className="mt-10 md:mt-12 max-w-3xl space-y-5"
+                >
+                    {STORY_PARAGRAPHS.map((paragraph, i) => (
+                        <p
+                            key={i}
+                            className="text-sm md:text-base text-saddle/90 leading-relaxed"
+                        >
+                            {paragraph}
+                        </p>
+                    ))}
+                </motion.div>
 
                 <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 lg:gap-10">
                     <motion.div
@@ -69,12 +94,6 @@ const OurStory = () => {
                                 “Slow food, kind hands, honest milk. Nothing rushed,
                                 nothing spared.”
                             </p>
-                            <p className="mt-5 text-sm text-saddle/85 leading-relaxed">
-                                We bottle cream-top A2/A2 milk in glass, hand‑shape
-                                every sourdough, and pull our cheeses fresh on bake
-                                day. The whole farm runs on the same rhythm — slow,
-                                steady, and just a little bit Portuguese.
-                            </p>
                         </motion.div>
 
                         <motion.div
@@ -86,16 +105,16 @@ const OurStory = () => {
                         >
                             <div className="relative rounded-2xl overflow-hidden aspect-square border border-stroke">
                                 <img
-                                    src={IMG_TOOLS}
-                                    alt="Vintage farm tools"
+                                    src={IMG_MILK}
+                                    alt="Cream-top A2/A2 milk being bottled"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 halftone opacity-[0.08] mix-blend-multiply" />
                             </div>
                             <div className="relative rounded-2xl overflow-hidden aspect-square border border-stroke">
                                 <img
-                                    src={IMG_PORTUGAL}
-                                    alt="Portuguese tradition"
+                                    src={IMG_SOURDOUGH}
+                                    alt="Fresh-baked sourdough loaves"
                                     className="absolute inset-0 w-full h-full object-cover"
                                 />
                                 <div className="absolute inset-0 halftone opacity-[0.08] mix-blend-multiply" />
@@ -103,43 +122,6 @@ const OurStory = () => {
                         </motion.div>
                     </div>
                 </div>
-
-                {/* Inline timeline strip */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-80px" }}
-                    variants={fadeUp}
-                    className="mt-14 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-stroke pt-10"
-                >
-                    {[
-                        {
-                            year: "1962",
-                            label: "Grandfather Joaquim begins milking on São Miguel.",
-                        },
-                        {
-                            year: "2003",
-                            label: "The family settles in Riverside County.",
-                        },
-                        {
-                            year: "2018",
-                            label: "Amber Freeland founds the farm under her name.",
-                        },
-                        {
-                            year: "2025",
-                            label: "Partnership with Batista Family Farm + Gioia Cheese.",
-                        },
-                    ].map((m) => (
-                        <div key={m.year} className="flex flex-col gap-2">
-                            <span className="font-display italic text-3xl md:text-4xl text-coffee-deep">
-                                {m.year}
-                            </span>
-                            <span className="text-xs md:text-sm text-saddle/85 leading-relaxed max-w-[20ch]">
-                                {m.label}
-                            </span>
-                        </div>
-                    ))}
-                </motion.div>
             </div>
         </section>
     );

@@ -12,7 +12,6 @@ import MeetFamily from "@/components/MeetFamily";
 import Journal from "@/components/Journal";
 import WhereToBuy from "@/components/WhereToBuy";
 import Testimonials from "@/components/Testimonials";
-import Stats from "@/components/Stats";
 import ContactFooter from "@/components/ContactFooter";
 
 function App() {
@@ -40,7 +39,6 @@ function App() {
             <main>
                 <Hero />
                 <OurStory />
-                <Stats />
                 <Products />
                 <Sustainability />
                 <MeetFamily />
